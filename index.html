@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jewello Client</title>
+
+  <style>
+    :root {
+      --bg-color: #F7C8B8;
+      --primary: #E53935;
+      --title-color: #E53935;
+      --text-color: #333333;
+      --font: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      font-weight: bold;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px;
+    }
+
+    .hero-text h1 {
+      color: var(--title-color);
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      max-width: 400px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #c62828;
+    }
+
+    .card {
+      background: white;
+      margin: 40px;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .card h2 {
+      color: var(--title-color);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    /* Animation */
+    .fade-in {
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <div>Jewello Store</div>
+    <div>Home | About | Contact</div>
+  </div>
+
+  <div class="hero fade-in">
+    <div class="hero-text">
+      <h1>Pay Your Installment</h1>
+      <p>
+        Secure and easy jewelry installment payment powered by Jewello.
+      </p>
+
+      <button class="btn" onclick="goToJewello()">
+        Pay Installment
+      </button>
+    </div>
+
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" width="250"/>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <h2>Why Choose Us?</h2>
+    <p>
+      Trusted by thousands of customers. Easy EMI plans, secure payment, and modern experience.
+    </p>
+  </div>
+
+  <div class="footer">
+    © 2026 Jewello Client Website
+  </div>
+
+<script>
+  // 🔥 Your Merchant Data
+  const merchantData = {
+    merchantCode: "9662",
+    colorTheme: "#F7C8B8",
+    titleColor: "#E53935",
+    textColor: "#333333",
+    fontStyle: "Poppins"
+  };
+
+  // 🎨 Apply Dynamic Theme
+  document.documentElement.style.setProperty('--bg-color', merchantData.colorTheme);
+  document.documentElement.style.setProperty('--title-color', merchantData.titleColor);
+  document.documentElement.style.setProperty('--text-color', merchantData.textColor);
+  document.documentElement.style.setProperty('--font', merchantData.fontStyle);
+
+  // 🚀 Open React App + Send Data (NO URL PARAMS)
+  function goToJewello() {
+
+    // 👉 open new tab
+    const newWindow = window.open("http://localhost:5173", "_blank");
+
+    // 👉 send data after ensuring window is ready
+    const interval = setInterval(() => {
+      if (newWindow) {
+        newWindow.postMessage(merchantData, "http://localhost:5173");
+        clearInterval(interval);
+      }
+    }, 500);
+  }
+</script>
+
+</body>
+</html>
