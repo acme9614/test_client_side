@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jewello Client</title>
 
   <style>
@@ -87,8 +88,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px);}
-      to { opacity: 1; transform: translateY(0);}
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -113,7 +121,7 @@
     </div>
 
     <div>
-      <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" width="250"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" width="250" />
     </div>
   </div>
 
@@ -128,37 +136,34 @@
     © 2026 Jewello Client Website
   </div>
 
-<script>
-  // 🔥 Your Merchant Data
-  const merchantData = {
-    merchantCode: "9662",
-    colorTheme: "#F7C8B8",
-    titleColor: "#E53935",
-    textColor: "#333333",
-    fontStyle: "Poppins"
-  };
+  <script>
+    const merchantData = {
+      merchantCode: "9662",
+      colorTheme: "#F7C8B8",
+      titleFont: "'Georgia', 'Times New Roman', serif",
+      paragraphFont: "'Arial', sans-serif",
+      primaryTextColor: "#E53935",
+      secondaryTextColor: "#333333" // just keep normal value (no logic)
+    };
 
-  // 🎨 Apply Dynamic Theme
-  document.documentElement.style.setProperty('--bg-color', merchantData.colorTheme);
-  document.documentElement.style.setProperty('--title-color', merchantData.titleColor);
-  document.documentElement.style.setProperty('--text-color', merchantData.textColor);
-  document.documentElement.style.setProperty('--font', merchantData.fontStyle);
+    document.documentElement.style.setProperty('--bg-color', merchantData.colorTheme);
+    document.documentElement.style.setProperty('--primary', merchantData.primaryTextColor);
+    document.documentElement.style.setProperty('--title-color', merchantData.primaryTextColor);
+    document.documentElement.style.setProperty('--text-color', merchantData.secondaryTextColor);
+    document.documentElement.style.setProperty('--font', merchantData.paragraphFont);
 
-  // 🚀 Open React App + Send Data (NO URL PARAMS)
-  function goToJewello() {
+    function goToJewello() {
+      const newWindow = window.open("http://localhost:5173", "_blank");
 
-    // 👉 open new tab
-    const newWindow = window.open("http://localhost:5173", "_blank");
-
-    // 👉 send data after ensuring window is ready
-    const interval = setInterval(() => {
-      if (newWindow) {
-        newWindow.postMessage(merchantData, "http://localhost:5173");
-        clearInterval(interval);
-      }
-    }, 500);
-  }
-</script>
+      const interval = setInterval(() => {
+        if (newWindow) {
+          newWindow.postMessage(merchantData, "http://localhost:5173");
+          clearInterval(interval);
+        }
+      }, 500);
+    }
+  </script>
 
 </body>
+
 </html>
