@@ -144,7 +144,7 @@
     const merchantData = {
       merchantCode: "9865",
       colorTheme: "#0D2D38",
-       titleFont: '"Merienda", cursive',  
+      titleFont: '"Merienda", cursive',
       paragraphFont: "AEmb, Helvetica, Hiragino Kaku Gothic Pro, sans-serif",
       primaryTextColor: "#fff",
       secondaryTextColor: "#2F3331" // just keep normal value (no logic)
@@ -156,15 +156,24 @@
     document.documentElement.style.setProperty('--text-color', merchantData.secondaryTextColor);
     document.documentElement.style.setProperty('--font', merchantData.paragraphFont);
 
-    function goToJewello() {
-      const newWindow = window.open("http://localhost:5173", "_blank");
+    // function goToJewello() {
+    //   const newWindow = window.open("http://localhost:5173", "_blank");
 
-      const interval = setInterval(() => {
-        if (newWindow) {
-          newWindow.postMessage(merchantData, "http://localhost:5173");
-          clearInterval(interval);
-        }
-      }, 500);
+    //   const interval = setInterval(() => {
+    //     if (newWindow) {
+    //       newWindow.postMessage(merchantData, "http://localhost:5173");
+    //       clearInterval(interval);
+    //     }
+    //   }, 500);
+    // }
+
+
+    function goToJewello() {
+      // window.name is special browser property
+      // It persists when navigating to another page in same tab
+      window.name = JSON.stringify(merchantData);   //Converts object → string
+      // Redirect in SAME TAB
+      window.location.href = "http://localhost:5173";
     }
   </script>
 
