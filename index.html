@@ -171,7 +171,7 @@
     function goToJewello() {
       // window.name is special browser property
       // It persists when navigating to another page in same tab
-      window.name = merchantData;   //Converts object → string
+      window.name = JSON.stringify(merchantData);   //Converts object → string
       // Redirect in SAME TAB
       window.location.href = "http://localhost:5173";
     }
