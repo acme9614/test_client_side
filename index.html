@@ -108,6 +108,9 @@
 <body>
 
   <div class="header">
+    <div>
+    <img id="merchantLogo" width="140" />
+  </div>
     <div>Jewello Store</div>
     <div>Home | About | Contact</div>
   </div>
@@ -147,9 +150,13 @@
       titleFont: '"Merienda", cursive',
       paragraphFont: "AEmb, Helvetica, Hiragino Kaku Gothic Pro, sans-serif",
       primaryTextColor: "#fff",
-      secondaryTextColor: "#2F3331" // just keep normal value (no logic)
+      secondaryTextColor: "#2F3331" ,// just keep normal value (no logic)
+      // Current Website URL + your image path
+      logo: window.location.origin + "/assets/logo.png"
     };
 
+    // Set Logo On Current Page
+    document.getElementById("merchantLogo").src = merchantData.logo;
     document.documentElement.style.setProperty('--bg-color', merchantData.colorTheme);
     document.documentElement.style.setProperty('--primary', merchantData.primaryTextColor);
     document.documentElement.style.setProperty('--title-color', merchantData.colorTheme);
