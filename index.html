@@ -152,7 +152,7 @@
       primaryTextColor: "#fff",
       secondaryTextColor: "#2F3331" ,// just keep normal value (no logic)
       // Current Website URL + your image path
-      logo: window.location.origin + "/assets/logo.png"
+      logo: window.location.origin + window.location.pathname.replace("index.html", "") + "assets/logo.png"
     };
 
     // Set Logo On Current Page
