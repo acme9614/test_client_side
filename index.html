@@ -148,13 +148,15 @@
   <script>
     const merchantData = {
       merchantCode: "9865",
+      merchantName: "jewello",
       colorTheme: "#0D2D38",
       titleFont: '"Merienda", cursive',
       paragraphFont: "AEmb, Helvetica, Hiragino Kaku Gothic Pro, sans-serif",
       primaryTextColor: "#fff",
       secondaryTextColor: "#2F3331" ,// just keep normal value (no logic)
       // Current Website URL + your image path
-      logo:  window.location.origin + window.location.pathname.replace("index.html", "") + "assets/logo.png"
+      logo:  window.location.origin + window.location.pathname.replace("index.html", "") + "assets/logo.png",
+      openWebAppFromCustomerWebsite: true
     };
 
     // Set Logo On Current Page
@@ -182,7 +184,8 @@
       // It persists when navigating to another page in same tab
       window.name = JSON.stringify(merchantData);   //Converts object → string
       // Redirect in SAME TAB
-      window.location.href = "https://jwdev1.acmepadm.com:8446";
+      window.location.href = `https://jwdev1.acmepadm.com:8446/${merchantData.merchantName}`;
+      //  window.location.href = `http://localhost:5173/${merchantData.merchantName}`;
     }
   </script>
 
