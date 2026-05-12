@@ -148,7 +148,6 @@
   <script>
     const merchantData = {
       merchantCode: "9865",
-      path: "jewello",
       colorTheme: "#0D2D38",
       titleFont: '"Merienda", cursive',
       paragraphFont: "AEmb, Helvetica, Hiragino Kaku Gothic Pro, sans-serif",
@@ -183,7 +182,7 @@
       // It persists when navigating to another page in same tab
       window.name = JSON.stringify(merchantData);   //Converts object → string
       // Redirect in SAME TAB
-     window.location.href =`https://jwdev1.acmepadm.com:8446/`;
+      window.location.href = "https://jwdev1.acmepadm.com:8446";
     }
   </script>
 
