@@ -181,8 +181,9 @@
       // window.name is special browser property
       // It persists when navigating to another page in same tab
       window.name = JSON.stringify(merchantData);   //Converts object → string
+      const merchantPath = "jewello";
       // Redirect in SAME TAB
-      window.location.href = "https://jwdev1.acmepadm.com:8446/";
+     window.location.href =`https://jwdev1.acmepadm.com:8446/${merchantPath}`;
     }
   </script>
 
